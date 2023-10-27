@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+D:\a_learning_code\java\OOP.Lab.20231.20215041.DuongVanGioi\Lab02\.metadata\.plugins\org.eclipse.jdt.core
+2315386619.index
+1865797976.index
+3413270776.index
