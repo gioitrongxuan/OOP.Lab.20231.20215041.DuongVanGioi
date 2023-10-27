@@ -44,14 +44,14 @@ public class Cart {
             if ( qtyOrdered < MAX_NUMBERS_ORDERED ) {
             	itemsOrdered[qtyOrdered] = dvd1;
                 qtyOrdered++;
-                System.out.println("The disc " + dvd1.getTitle() + " has been added!");
+                System.out.println("The disc " + dvd1.getTitle() + " has been added 1!");
             } else {
             	System.out.println("The Cart is almost full!");
             }
             if ( qtyOrdered < MAX_NUMBERS_ORDERED ) {
             	itemsOrdered[qtyOrdered] = dvd2;
                 qtyOrdered++;
-                System.out.println("The disc " + dvd2.getTitle() + " has been added!");
+                System.out.println("The disc " + dvd2.getTitle() + " has been added! 2");
             } else {
             	System.out.println("The Cart is almost full!");
             }
