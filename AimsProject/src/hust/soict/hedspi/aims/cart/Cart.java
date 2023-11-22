@@ -78,9 +78,13 @@ public class Cart {
 		return total;
 	}
 	public void displayCart() {
+		System.out.println("***********************CART***********************");
+		System.out.println("Ordered Items:");
+		System.out.printf("%-3s %-24s %-10s %-15s%-11s %s\n","STT","Title","Category","Director","Length","Cost");
 		for(int i=0;i<qtyOrdered;i++) {
-			System.out.printf("%-5d%-30s%.2f\n",i+1,itemsOrdered[i].getTitle(),itemsOrdered[i].getCost());
+			System.out.printf("%-3d.%s",i+1,itemsOrdered[i].toString());
 		}
-		System.out.printf("%5s%-30s%.2f"," ","Total Cost",totalCost());
+		System.out.printf("%5s%-62s%.2f\n"," ","Total Cost",totalCost());
+		System.out.println("***************************************************");
 	}
 }

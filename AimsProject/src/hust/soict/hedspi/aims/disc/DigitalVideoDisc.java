@@ -4,10 +4,27 @@ public class DigitalVideoDisc {
 	private String title;
 	private String category;
 	private String director;
-	private int length;
+	private int length=-1;
 	private float cost;
 	private int id;
 	private static int nbDigitalVideoDisc=0;
+	
+	@SuppressWarnings("unused")
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		Boolean a,b,c;
+		a=(title!=null&&title.length()>20);
+		b=(category!=null&&category.length()>10);
+		c=(director!=null&&director.length()>15);
+		String atitle = title;
+		String bcategory = category;
+		String cdirector = director;
+		if(a) atitle = title.substring(0,16)+"...";
+		if(b) bcategory = category.substring(0,6)+"...";
+		if(c) cdirector = director.substring(0,11)+"...";
+		return String.format("DVD-%-20s %-10s %-15s%-10d: %.2f\n",atitle,bcategory,cdirector,length,cost);
+	}
 	public int getId() {
 		return id;
 	}

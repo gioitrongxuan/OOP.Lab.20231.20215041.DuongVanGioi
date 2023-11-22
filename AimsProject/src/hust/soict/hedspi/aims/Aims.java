@@ -9,7 +9,7 @@ public class Aims {
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc();
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("Đường Đến Với Cung Thành");
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("Programming","Learning Java", (float) 22.23);
-		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Learning Python","Programming","朝日", (float) 10.12);
+		DigitalVideoDisc dvd4 = new DigitalVideoDisc("Learning Python","Programming","Trong Xuan", (float) 10.12);
 		DigitalVideoDisc dvd5 = new DigitalVideoDisc("Ruby on Rails","Programming","Dương Văn Giới", 234, (float) 10);
 		anOrder.addDigitalVideoDisc(dvd5);
 		anOrder.addDigitalVideoDisc(dvd2);
