@@ -1,12 +1,13 @@
 package hust.soict.hedspi.aims.store;
 import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
+
 public class Store {
 	public static final int MAX_NUMBERS_ORDERED=200;
 	private int qtyOrdered = 0;
 	private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
 	
 	// Thêm DVD vào Store
-	public void addDigitalVideoDisc(DigitalVideoDisc disc) {
+	public void addDVD(DigitalVideoDisc disc) {
 		if(qtyOrdered>=MAX_NUMBERS_ORDERED) {
 			System.out.println("The Cart is almost full!");
 			return;
@@ -28,5 +29,12 @@ public class Store {
 		}
 		
 	}
+	
+	public void print() {
+		for(int i=0;i<qtyOrdered;i++) {
+			System.out.println(itemsInStore[i].toString());
+		}
+	}
+	
 		
 }
