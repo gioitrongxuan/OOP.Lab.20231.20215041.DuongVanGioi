@@ -1,12 +1,8 @@
 package hust.soict.hedspi.aims.disc;
-
-public class DigitalVideoDisc {
-	private String title;
-	private String category;
+import hust.soict.hedspi.aims.media.Media;
+public class DigitalVideoDisc extends Media {
 	private String director;
 	private int length=-1;
-	private float cost;
-	private int id;
 	private static int nbDigitalVideoDisc=0;
 	
 	@SuppressWarnings("unused")
@@ -14,16 +10,16 @@ public class DigitalVideoDisc {
 	public String toString() {
 		// TODO Auto-generated method stub
 		Boolean a,b,c;
-		a=(title!=null&&title.length()>20);
-		b=(category!=null&&category.length()>10);
+		a=(super.getTitle()!=null&&super.getTitle().length()>20);
+		b=(super.getCategory()!=null&&super.getCategory().length()>10);
 		c=(director!=null&&director.length()>15);
-		String atitle = title;
-		String bcategory = category;
+		String atitle = super.getTitle();
+		String bcategory = super.getCategory();
 		String cdirector = director;
-		if(a) atitle = title.substring(0,16)+"...";
-		if(b) bcategory = category.substring(0,6)+"...";
-		if(c) cdirector = director.substring(0,11)+"...";
-		return String.format("DVD-%-20s %-10s %-15s%-10d: %.2f\n",atitle,bcategory,cdirector,length,cost);
+		if(a) atitle = atitle.substring(0,16)+"...";
+		if(b) bcategory = bcategory.substring(0,6)+"...";
+		if(c) cdirector = cdirector.substring(0,11)+"...";
+		return String.format("DVD-%-20s %-10s %-15s%-10d: %.2f\n",atitle,bcategory,cdirector,length,super.getCost());
 	}
 	//kiểm tra title có giống không
 	public boolean isMatch(String titleSearch) {
@@ -31,27 +27,12 @@ public class DigitalVideoDisc {
 		else return false;
 		
 	}
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	
+	
 	public static int getNbDigitalVideoDisc() {
 		return nbDigitalVideoDisc;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
+	
 	public String getDirector() {
 		return director;
 	}
@@ -64,49 +45,16 @@ public class DigitalVideoDisc {
 	public void setLength(int length) {
 		this.length = length;
 	}
-	public float getCost() {
-		return cost;
-	}
-	public void setCost(float cost) {
-		this.cost = cost;
-	}
+	
 	public DigitalVideoDisc() {
 		super();
 		nbDigitalVideoDisc++;
-		this.id=nbDigitalVideoDisc;
 	}
-	public DigitalVideoDisc(String title) {
-		super();
-		nbDigitalVideoDisc++;
-		this.id=nbDigitalVideoDisc;
-		this.title = title;
-	}
-	public DigitalVideoDisc(String category, String title, float cost) {
-		super();
-		nbDigitalVideoDisc++;
-		this.id=nbDigitalVideoDisc;
-		this.category = category;
-		this.title = title;
-		this.cost = cost;
-	}
-	public DigitalVideoDisc(String title, String category, String director, float cost) {
-		super();
-		nbDigitalVideoDisc++;
-		this.id=nbDigitalVideoDisc;
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.cost = cost;
-	}
-	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		super();
-		nbDigitalVideoDisc++;
-		this.id=nbDigitalVideoDisc;
-		this.title = title;
-		this.category = category;
-		this.director = director;
+	public DigitalVideoDisc(String id, String title, String category, String director,int length, float cost) {
+		super(id,title,category,cost);
 		this.length = length;
-		this.cost = cost;
+		this.director=director;
+		nbDigitalVideoDisc++;
 	}
 	
  

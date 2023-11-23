@@ -66,7 +66,7 @@ public class Cart {
 	}
 	
 	//Tìm kiếm  theo Id
-	public DigitalVideoDisc searchByID(int id) {
+	public DigitalVideoDisc searchByID(String id) {
 		for(int i =0; i< this.qtyOrdered ;i++) {
 			if(itemsOrdered[i].getId() == id) 	return itemsOrdered[i];
 		}
