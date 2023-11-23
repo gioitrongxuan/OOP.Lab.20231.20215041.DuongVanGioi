@@ -25,6 +25,12 @@ public class DigitalVideoDisc {
 		if(c) cdirector = director.substring(0,11)+"...";
 		return String.format("DVD-%-20s %-10s %-15s%-10d: %.2f\n",atitle,bcategory,cdirector,length,cost);
 	}
+	//kiểm tra title có giống không
+	public boolean isMatch(String titleSearch) {
+		if(titleSearch.equals(titleSearch)) return true;
+		else return false;
+		
+	}
 	public int getId() {
 		return id;
 	}
