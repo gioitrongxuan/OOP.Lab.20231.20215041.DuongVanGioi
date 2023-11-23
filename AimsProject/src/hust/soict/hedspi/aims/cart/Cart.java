@@ -16,19 +16,6 @@ public class Cart {
 		System.out.println("The disc has been added!");
 	}
 	
-//	public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList) {
-//		for (DigitalVideoDisc dvd : dvdList) {
-//            if ( qtyOrdered < MAX_NUMBERS_ORDERED ) {
-//            	itemsOrdered[qtyOrdered] = dvd;
-//                qtyOrdered++;
-//                System.out.println("The disc " + dvd.getTitle() + " has been added!");
-//            } else {
-//            	System.out.println("The Cart is almost full!");
-//            }
-//        }
-//		return;
-//	}
-//	
 	public void addDigitalVideoDisc(DigitalVideoDisc ... discsList) {
 		for (DigitalVideoDisc disc : discsList) {
             if ( qtyOrdered < MAX_NUMBERS_ORDERED ) {
@@ -77,10 +64,32 @@ public class Cart {
 		}
 		return total;
 	}
-	public void displayCart() {
-		for(int i=0;i<qtyOrdered;i++) {
-			System.out.printf("%-5d%-30s%.2f\n",i+1,itemsOrdered[i].getTitle(),itemsOrdered[i].getCost());
+	
+	//Tìm kiếm  theo Id
+	public DigitalVideoDisc searchByID(int id) {
+		for(int i =0; i< this.qtyOrdered ;i++) {
+			if(itemsOrdered[i].getId() == id) 	return itemsOrdered[i];
 		}
-		System.out.printf("%5s%-30s%.2f"," ","Total Cost",totalCost());
+		return null;
+	}
+	
+	// Tìm kiếm theo Title
+	public DigitalVideoDisc searchByTitle(String title) {
+		for(int i =0; i< this.qtyOrdered ;i++) {
+			if(itemsOrdered[i].isMatch(title)) 	return itemsOrdered[i];
+		}	
+		return null;
+	}
+	
+	// In ra thông tin chi tiết đơn hàng
+	public void print() {
+		System.out.println("***********************CART***********************");
+		System.out.println("Ordered Items:");
+		System.out.printf("%-3s %-24s %-10s %-15s%-11s %s\n","STT","Title","Category","Director","Length","Cost");
+		for(int i=0;i<qtyOrdered;i++) {
+			System.out.printf("%-3d.%s",i+1,itemsOrdered[i].toString());
+		}
+		System.out.printf("%5s%-62s%.2f\n"," ","Total Cost",totalCost());
+		System.out.println("***************************************************");
 	}
 }
