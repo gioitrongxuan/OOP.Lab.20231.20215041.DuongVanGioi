@@ -17,7 +17,7 @@ public class Aims {
 		anOrder.removeDigitalVideoDisc(dvd2);
 		anOrder.addDigitalVideoDisc(dvd1,dvd2,dvd3,dvd4);
 		anOrder.addDigitalVideoDisc(dvd1,dvd2);
-		anOrder.displayCart();
+		anOrder.print();
 	}
 	
 }
