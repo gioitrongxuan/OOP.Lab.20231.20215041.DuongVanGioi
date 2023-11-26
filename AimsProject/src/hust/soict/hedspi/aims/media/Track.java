@@ -16,7 +16,14 @@ public class Track implements Playable {
 	}
 	@Override
 	public void play() {
-		// TODO Auto-generated method stub
+		System.out.println("Playing Track: "+ this.title);
+		System.out.println("Track length: "+ this.length);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		Track track=(Track)obj;
+		if(this.title==track.title && this.length == track.length) return true;
+		else return false;
 	}
 	
 }

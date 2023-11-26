@@ -27,7 +27,9 @@ public class CompactDisc extends Disc implements Playable{
 	
 	@Override
 	public void play() {
-		// TODO Auto-generated method stub
+		for(Track track : tracks) {
+			track.play();
+		}
 		
 	}
 	public String getArtist() {

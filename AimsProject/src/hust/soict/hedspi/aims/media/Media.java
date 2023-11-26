@@ -50,5 +50,11 @@ public abstract class Media {
 		if(b) bcategory = bcategory.substring(0,6)+"...";
 		return String.format("%-5s%-20s%-10s%5.2f",this.id,atitle,bcategory,cost);
 	}
+	@Override
+	public boolean equals(Object obj) {
+		Media media=(Media)obj;
+		if(this.title.equals(media.title)) return true;
+		else return false;
+	}
 
 }

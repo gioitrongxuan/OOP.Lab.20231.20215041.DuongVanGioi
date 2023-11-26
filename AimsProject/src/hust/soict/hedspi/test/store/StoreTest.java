@@ -11,12 +11,12 @@ public class StoreTest {
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("D342","Aladin","Animation","H",56,18.99f);
 
 		// Test addDvd method	
-		store.addDVD(dvd1);
-		store.addDVD(dvd2);
-		store.addDVD(dvd3);
+		store.addMedia(dvd1);
+		store.addMedia(dvd2);
+		store.addMedia(dvd3);
 		
 		store.print();
 		//Test removeDVD method
-		store.removeDVD(dvd2);
+		store.removeMedia(dvd2);
 	}
 }
