@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import javax.xml.stream.events.StartDocument;
-
+//Tạo rác
 public class GarbageCreator {
 	public static void main(String[] args) throws IOException {
 		
@@ -15,6 +14,7 @@ public class GarbageCreator {
 		
 		inputBytes = Files.readAllBytes(Paths.get(filename));
 		startTime = System.currentTimeMillis();
+		@SuppressWarnings("unused")
 		String outputString ="";
 		for (byte b : inputBytes){
 			outputString += (char)b;

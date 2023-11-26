@@ -40,6 +40,15 @@ public abstract class Media {
 		this.category = category;
 		this.cost = cost;
 	}
-	
+	@Override
+	public String toString() {
+		boolean a,b;
+		String atitle = title,bcategory = category;
+		a=(title!=null&& title.length()>20);
+		b=(category!=null&&category.length()>10);
+		if(a) atitle = atitle.substring(0,16)+"...";
+		if(b) bcategory = bcategory.substring(0,6)+"...";
+		return String.format("%-5s%-20s%-10s%5.2f",this.id,atitle,bcategory,cost);
+	}
 
 }

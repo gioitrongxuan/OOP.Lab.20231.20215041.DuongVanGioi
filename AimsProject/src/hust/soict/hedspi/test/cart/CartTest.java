@@ -8,13 +8,13 @@ public class CartTest {
 		
 		//Create new dvd objects and add them to the cart
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("B114","The Lion King","Animation","Roger Allers",87, 19.95f);
-		cart.addDigitalVideoDisc(dvd1);
+		cart.addMedia(dvd1);
 		
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("D425","Star Wars","Science Fiction","Gerge Lucas",87,24.95f);
-		cart.addDigitalVideoDisc(dvd2);
+		cart.addMedia(dvd2);
 		
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("D342","Aladin","Animation","H",56,18.99f);
-		cart.addDigitalVideoDisc(dvd3);
+		cart.addMedia(dvd3);
 		
 	//Test the print method
 		cart.print();
@@ -25,16 +25,13 @@ public class CartTest {
 		// Test search by ID
 		String idSearch = "D425";
 		System.out.println("Search by Id: "+idSearch);
-		DigitalVideoDisc dvdSearchId = cart.searchByID(idSearch);
-		if(dvdSearchId != null)  System.out.println(dvdSearchId.toString());
-		else System.out.println("Can't found this DVD\n");
+		cart.searchByID(idSearch);
 		
 		// Test search by title
 		String titleSearch = "The Lion King";
 		System.out.println("Search by title: "+titleSearch);
-		DigitalVideoDisc dvdSearchTitle = cart.searchByTitle(titleSearch);
-		if(dvdSearchTitle != null)  System.out.println(dvdSearchId.toString());
-		else System.out.println("Can't found this DVD\n");
+		cart.searchByTitle(titleSearch);
+		
 		
 	}
 }
