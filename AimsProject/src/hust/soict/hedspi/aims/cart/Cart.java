@@ -1,5 +1,7 @@
 package hust.soict.hedspi.aims.cart;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import hust.soict.hedspi.aims.media.Media;
 
@@ -53,7 +55,13 @@ public class Cart {
 		System.out.println("Can't found this DVD\n");
 	}
 	
-	
+	// Sắp xếp và in ra
+	public void sortPrint(Comparator<Media> comparator) {
+		Cart cartClone = new Cart();
+		cartClone.itemsOrdered.addAll(itemsOrdered);
+		Collections.sort(cartClone.itemsOrdered,comparator);
+		cartClone.print();
+	}
 	// In ra thông tin chi tiết đơn hàng
 	public void print() {
 		int stt=0;
