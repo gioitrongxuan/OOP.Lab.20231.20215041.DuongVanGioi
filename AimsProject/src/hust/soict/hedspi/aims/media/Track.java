@@ -1,6 +1,9 @@
 package hust.soict.hedspi.aims.media;
 
+import java.util.Scanner;
+
 public class Track implements Playable {
+	Scanner scanner = new Scanner(System.in);
 	private String title;
 	private int length;
 	public String getTitle() {
@@ -18,6 +21,8 @@ public class Track implements Playable {
 	public void play() {
 		System.out.println("Playing Track: "+ this.title);
 		System.out.println("Track length: "+ this.length);
+		System.out.println("Press enter to stop playing");
+		scanner.nextLine();
 	}
 	@Override
 	public boolean equals(Object obj) {

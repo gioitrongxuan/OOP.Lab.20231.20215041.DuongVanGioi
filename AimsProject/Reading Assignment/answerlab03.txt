@@ -1,0 +1,19 @@
+Reading Assignment: Please answer three questions below:
+- What are the advantages of Polymorphism?
+- How is Inheritance useful to achieve Polymorphism in Java?
+- What are the differences between Polymorphism and Inheritance in Java?
+
+- Ưu điểm của đa hình là có thể tùy biến linh hoạt dựa theo đối tượng được truyền vào
+
+
+Question: Alternatively, to compare items in the cart, instead of using the Comparator class I have
+mentioned, you can use the Comparable interface1 and override the compareTo()method. You can
+refer to the Java docs to see the information of this interface.
+Suppose we are taking this Comparable interface approach.
+- What class should implement the Comparable interface?
+- In those classes, how should you implement the compareTo()method to reflect the ordering that
+we want?
+- Can we have two ordering rules of the item (by title then cost and by cost then title) if we use this
+Comparable interface approach?
+- Suppose the DVDs have a different ordering rule from the other media types, that is by title, then
+decreasing length, then cost. How would you modify your code to allow this?

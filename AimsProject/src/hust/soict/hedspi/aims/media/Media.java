@@ -1,6 +1,9 @@
 package hust.soict.hedspi.aims.media;
 
-public abstract class Media {
+import java.util.Comparator;
+public abstract class Media implements Playable {
+	public static final Comparator<Media> COMPARE_BY_TITLE_COST = new MediaComparatorByTitleCost();
+	public static final Comparator<Media> COMPARE_BY_COST_TITLE = new MediaComparatorByCostTitle();
 	private String id;
 	private String title;
 	private String category;
@@ -43,7 +46,8 @@ public abstract class Media {
 	@Override
 	public String toString() {
 		boolean a,b;
-		String atitle = title,bcategory = category;
+		String atitle = title;
+		String bcategory = category;
 		a=(title!=null&& title.length()>20);
 		b=(category!=null&&category.length()>10);
 		if(a) atitle = atitle.substring(0,16)+"...";
@@ -53,8 +57,10 @@ public abstract class Media {
 	@Override
 	public boolean equals(Object obj) {
 		Media media=(Media)obj;
-		if(this.title.equals(media.title)) return true;
+		if(title.equals(media.title)) return true;
 		else return false;
 	}
-
+	public boolean isMatch(String title) {
+		return this.title.equals(title);
+	}
 }

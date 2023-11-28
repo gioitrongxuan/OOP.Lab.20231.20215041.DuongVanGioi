@@ -15,9 +15,17 @@ public class Book extends Media {
 	public void removeAuthor(String author) {
 		this.authors.remove(author);
 	}
+	public Book(String id,String title, String category, float cost,List<String> authors) {
+		super(id, title, category, cost);
+		this.authors = authors;
+	}
+	@Override
+	public void play() {
+		System.out.println("Book can't be played");
+	}
 	@Override
 	public String toString() {
-		return super.toString();
+		return String.format("%5s%s","BOOK:", super.toString())+authors;
 	}
 
 }

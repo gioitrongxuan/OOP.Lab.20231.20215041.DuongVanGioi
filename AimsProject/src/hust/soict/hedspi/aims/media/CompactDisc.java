@@ -1,9 +1,10 @@
 package hust.soict.hedspi.aims.media;
 import java.util.ArrayList;
+import java.util.List;
 
-public class CompactDisc extends Disc implements Playable{
+public class CompactDisc extends Disc{
 	private String artist;
-	private ArrayList<Track> tracks = new ArrayList<>();
+	private List<Track> tracks = new ArrayList<>();
 	
 	public CompactDisc() {
 		super();
@@ -27,6 +28,9 @@ public class CompactDisc extends Disc implements Playable{
 	
 	@Override
 	public void play() {
+		if(tracks.isEmpty()) {
+			System.out.println("There are no tracks on the CD");
+		}
 		for(Track track : tracks) {
 			track.play();
 		}

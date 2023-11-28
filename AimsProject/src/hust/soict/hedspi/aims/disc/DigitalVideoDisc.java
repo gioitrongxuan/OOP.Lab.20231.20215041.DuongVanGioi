@@ -1,19 +1,15 @@
 package hust.soict.hedspi.aims.disc;
+import java.util.Scanner;
+
 import hust.soict.hedspi.aims.media.Disc;
-import hust.soict.hedspi.aims.media.Playable;
-public class DigitalVideoDisc extends Disc implements Playable {
-	
+public class DigitalVideoDisc extends Disc {
+	Scanner scanner = new Scanner(System.in);
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return String.format("%5s%60s","DVD:",super.toString());
 	}
 	//kiểm tra title có giống không
-	public boolean isMatch(String titleSearch) {
-		if(titleSearch.equals(titleSearch)) return true;
-		else return false;
-		
-	}
 	public DigitalVideoDisc() {
 		super();
 	}
@@ -24,5 +20,7 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	public void play() {
 		System.out.println("Playing DVD: "+ this.getTitle());
 		System.out.println("DVD length: "+ this.getLength());
+		System.out.println("Press enter to stop playing");
+		scanner.nextLine();
 	}
 }
