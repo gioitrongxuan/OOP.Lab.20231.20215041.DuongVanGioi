@@ -19,10 +19,7 @@ public class Book extends Media {
 		super(id, title, category, cost);
 		this.authors = authors;
 	}
-	@Override
-	public void play() {
-		System.out.println("Book can't be played");
-	}
+	
 	@Override
 	public String toString() {
 		return String.format("%5s%s","BOOK:", super.toString())+authors;

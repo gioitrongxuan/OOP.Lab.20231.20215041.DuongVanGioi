@@ -8,6 +8,7 @@ import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.media.CompactDisc;
 import hust.soict.hedspi.aims.media.Media;
+import hust.soict.hedspi.aims.media.Playable;
 import hust.soict.hedspi.aims.store.Store;
 public class Aims {
 	private static Store store = new Store();
@@ -129,7 +130,8 @@ public class Aims {
 												cart.addMedia(findMedia);
 												break;
 											case 2:
-												findMedia.play();
+												if(findMedia instanceof Playable)
+													((Playable) findMedia).play();
 												break;
 											case 0:
 												System.out.println("Returning to viewstore menu.");
@@ -156,7 +158,8 @@ public class Aims {
 									System.out.println("Select media:");
 									index = scanner.nextInt();
 									scanner.nextLine();
-									store.getItemsInStore().get(index-1).play();
+									if(store.getItemsInStore().get(index-1) instanceof Playable)
+									((Playable)store.getItemsInStore().get(index-1)).play();
 							}
 							
 							

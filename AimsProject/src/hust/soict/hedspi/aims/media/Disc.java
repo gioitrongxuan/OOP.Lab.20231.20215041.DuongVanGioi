@@ -1,6 +1,6 @@
 package hust.soict.hedspi.aims.media;
 
-public abstract class Disc extends Media{
+public abstract class Disc extends Media implements Playable{
 	private int length;
 	private String director;
 	
