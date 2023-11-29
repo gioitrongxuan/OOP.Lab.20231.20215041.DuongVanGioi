@@ -44,6 +44,7 @@ public class Cart {
 	}
 	
 	// Tìm kiếm theo Title
+	@SuppressWarnings("unlikely-arg-type")
 	public void searchByTitle(String title) {
 		for(Media media : itemsOrdered) {
 			if(media.equals(title)) {
