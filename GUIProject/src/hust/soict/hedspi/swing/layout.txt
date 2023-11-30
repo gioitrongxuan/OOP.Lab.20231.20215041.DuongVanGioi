@@ -1,0 +1,4 @@
+FlowLayout : chảy
+BorderLayout : 5 hướng
+BoxLayout: theo hàng theo cột
+GridLayout: lưới

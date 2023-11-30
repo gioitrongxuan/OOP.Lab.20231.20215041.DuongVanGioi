@@ -21,8 +21,6 @@ public class Track implements Playable {
 	public void play() {
 		System.out.println("Playing Track: "+ this.title);
 		System.out.println("Track length: "+ this.length);
-		System.out.println("Press enter to stop playing");
-		scanner.nextLine();
 	}
 	@Override
 	public boolean equals(Object obj) {
