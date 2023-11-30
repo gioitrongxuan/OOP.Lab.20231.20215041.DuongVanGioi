@@ -34,6 +34,46 @@ public class Aims {
 	public static void main(String[] args) {
 		int choice;
 		do {
+			//////////////// nhap
+			//////////////
+			//Nhap media
+			DigitalVideoDisc dvd1 = new DigitalVideoDisc("D001", "The Matrix", "Action", "Wachowski Brothers", 136, 19.99f);
+			DigitalVideoDisc dvd2 = new DigitalVideoDisc("D002", "Inception", "Sci-Fi", "Christopher Nolan", 148, 24.99f);
+			DigitalVideoDisc dvd3 = new DigitalVideoDisc("D003", "The Shawshank Redemption", "Drama", "Frank Darabont", 142, 15.99f);
+			DigitalVideoDisc dvd4 = new DigitalVideoDisc("D004", "Forrest Gump", "Drama", "Robert Zemeckis", 142, 18.99f);
+			DigitalVideoDisc dvd5 = new DigitalVideoDisc("D005", "The Dark Knight", "Action", "Christopher Nolan", 152, 21.99f);
+			DigitalVideoDisc dvd6 = new DigitalVideoDisc("D006", "Pulp Fiction", "Crime", "Quentin Tarantino", 154, 17.99f);
+			DigitalVideoDisc dvd7 = new DigitalVideoDisc("D007", "The Godfather", "Crime", "Francis Ford Coppola", 175, 22.99f);
+			DigitalVideoDisc dvd8 = new DigitalVideoDisc("D008", "Jurassic Park", "Adventure", "Steven Spielberg", 127, 16.99f);
+			DigitalVideoDisc dvd9 = new DigitalVideoDisc("D009", "Avatar", "Sci-Fi", "James Cameron", 162, 23.99f);
+			DigitalVideoDisc dvd10 = new DigitalVideoDisc("D010", "Titanic", "Romance", "James Cameron", 195, 20.99f);
+
+		    CompactDisc cd1 = new CompactDisc("C001", "Thriller", "Pop", "Michael Jackson", 42, 14.99f, "Various Artists");
+		    CompactDisc cd2 = new CompactDisc("C002", "Abbey Road", "Rock", "The Beatles", 47, 18.99f, "The Beatles");
+	
+		    List<String> authors1 = Arrays.asList("J.K. Rowling","J.K.K Rowling");
+		    Book book1 = new Book("B001", "Harry Potter and the Sorcerer's Stone", "Fantasy", 29.99f, authors1);
+		    System.out.println(dvd2.toString());
+		    List<String> authors2 = Arrays.asList("George Orwell");
+		    Book book2 = new Book("B002", "1984", "Dystopian", 19.99f, authors2);
+		    store.addMedia(book2);
+		    store.addMedia(book1);
+		    store.addMedia(cd1);
+		    store.addMedia(cd2);
+		    store.addMedia(dvd1);
+		    store.addMedia(dvd2);
+		    store.addMedia(dvd3);
+		    store.addMedia(dvd4);
+		    store.addMedia(dvd5);
+		    store.addMedia(dvd6);
+		    store.addMedia(dvd7);
+		    store.addMedia(dvd8);
+		    store.addMedia(dvd9);
+		    store.addMedia(dvd10);
+		    new StoreManagerScreen(store);
+			 new CartScreen(cart);
+			////////////////
+			//////////
 			showMenu();
 			System.out.print("Your choice: ");
 			choice = scanner.nextInt();
@@ -194,23 +234,41 @@ public class Aims {
 	}
 							//	1. Add a media to the store.
 							public static void addMediaToStore() {
-								//Nhap media
-							    DigitalVideoDisc dvd1 = new DigitalVideoDisc("D001", "The Matrix", "Action", "Wachowski Brothers", 136, 19.99f);
-							    DigitalVideoDisc dvd2 = new DigitalVideoDisc("D002", "Inception", "Sci-Fi", "Christopher Nolan", 148, 24.99f);
-							    CompactDisc cd1 = new CompactDisc("C001", "Thriller", "Pop", "Michael Jackson", 42, 14.99f, "Various Artists");
-							    CompactDisc cd2 = new CompactDisc("C002", "Abbey Road", "Rock", "The Beatles", 47, 18.99f, "The Beatles");
-						
-							    List<String> authors1 = Arrays.asList("J.K. Rowling","J.K.K Rowling");
-							    Book book1 = new Book("B001", "Harry Potter and the Sorcerer's Stone", "Fantasy", 29.99f, authors1);
-							    System.out.println(dvd2.toString());
-							    List<String> authors2 = Arrays.asList("George Orwell");
-							    Book book2 = new Book("B002", "1984", "Dystopian", 19.99f, authors2);
-							    store.addMedia(book2);
-							    store.addMedia(book1);
-							    store.addMedia(cd1);
-							    store.addMedia(cd2);
-							    store.addMedia(dvd1);
-							    store.addMedia(dvd2);
+//								//Nhap media
+//								DigitalVideoDisc dvd1 = new DigitalVideoDisc("D001", "The Matrix", "Action", "Wachowski Brothers", 136, 19.99f);
+//								DigitalVideoDisc dvd2 = new DigitalVideoDisc("D002", "Inception", "Sci-Fi", "Christopher Nolan", 148, 24.99f);
+//								DigitalVideoDisc dvd3 = new DigitalVideoDisc("D003", "The Shawshank Redemption", "Drama", "Frank Darabont", 142, 15.99f);
+//								DigitalVideoDisc dvd4 = new DigitalVideoDisc("D004", "Forrest Gump", "Drama", "Robert Zemeckis", 142, 18.99f);
+//								DigitalVideoDisc dvd5 = new DigitalVideoDisc("D005", "The Dark Knight", "Action", "Christopher Nolan", 152, 21.99f);
+//								DigitalVideoDisc dvd6 = new DigitalVideoDisc("D006", "Pulp Fiction", "Crime", "Quentin Tarantino", 154, 17.99f);
+//								DigitalVideoDisc dvd7 = new DigitalVideoDisc("D007", "The Godfather", "Crime", "Francis Ford Coppola", 175, 22.99f);
+//								DigitalVideoDisc dvd8 = new DigitalVideoDisc("D008", "Jurassic Park", "Adventure", "Steven Spielberg", 127, 16.99f);
+//								DigitalVideoDisc dvd9 = new DigitalVideoDisc("D009", "Avatar", "Sci-Fi", "James Cameron", 162, 23.99f);
+//								DigitalVideoDisc dvd10 = new DigitalVideoDisc("D010", "Titanic", "Romance", "James Cameron", 195, 20.99f);
+//
+//							    CompactDisc cd1 = new CompactDisc("C001", "Thriller", "Pop", "Michael Jackson", 42, 14.99f, "Various Artists");
+//							    CompactDisc cd2 = new CompactDisc("C002", "Abbey Road", "Rock", "The Beatles", 47, 18.99f, "The Beatles");
+//						
+//							    List<String> authors1 = Arrays.asList("J.K. Rowling","J.K.K Rowling");
+//							    Book book1 = new Book("B001", "Harry Potter and the Sorcerer's Stone", "Fantasy", 29.99f, authors1);
+//							    System.out.println(dvd2.toString());
+//							    List<String> authors2 = Arrays.asList("George Orwell");
+//							    Book book2 = new Book("B002", "1984", "Dystopian", 19.99f, authors2);
+//							    store.addMedia(book2);
+//							    store.addMedia(book1);
+//							    store.addMedia(cd1);
+//							    store.addMedia(cd2);
+//							    store.addMedia(dvd1);
+//							    store.addMedia(dvd2);
+//							    store.addMedia(dvd3);
+//							    store.addMedia(dvd4);
+//							    store.addMedia(dvd5);
+//							    store.addMedia(dvd6);
+//							    store.addMedia(dvd7);
+//							    store.addMedia(dvd8);
+//							    store.addMedia(dvd9);
+//							    store.addMedia(dvd10);
+							    
 							}
 							// 2. Remove a media from the store
 							public static void removeMediaFromStore() {

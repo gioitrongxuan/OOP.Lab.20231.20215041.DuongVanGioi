@@ -11,7 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-import javax.management.remote.JMXServiceURL;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -21,13 +20,14 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-
-import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.store.Store;
 
 public class StoreManagerScreen extends JFrame{
 	private Store store;
+	public Store getStore() {
+		return store;
+	}
 	public StoreManagerScreen(Store store) {
 		this.store = store;
 		Container cp = getContentPane();
@@ -58,15 +58,14 @@ public class StoreManagerScreen extends JFrame{
 		smUpdateStore.add(btnAddCD);
 		smUpdateStore.add(btnAddDVD);
 		btnAddBook.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				AddBookToStoreScreen( );
-				
-			}
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        AddBookToStoreScreen addBookScreen = new AddBookToStoreScreen(StoreManagerScreen.this);
+		        addBookScreen.setVisible(true);
+		    }
 		});
-		btnAddCD.addActionListener(null);
-		btnAddDVD.addActionListener(null);
+//		btnAddCD.addActionListener(null);
+//		btnAddDVD.addActionListener(null);
 	
 		
 		menu.add(smUpdateStore);
@@ -106,23 +105,28 @@ public class StoreManagerScreen extends JFrame{
 		center.setLayout(new GridLayout(3,3,2,2));
 		
 		List<Media> mediaInStore = store.getItemsInStore();
-		for(int i = 0; i < 6; i++) {
+		int quantity = mediaInStore.size();
+		for(int i = quantity -1 ; i > quantity -10 ; i--) {
 			MediaStore cell = new MediaStore(mediaInStore.get(i),this);
 			center.add(cell);
 		}
 		return center;
 	}
 	
-	
-	// Method to add a book to the store
-    public void addBookToStore(String id,String title, String category, float cost,List<String> authors) {
-        // Assuming you have a constructor for the Book class in your Media hierarchy
-        Media book = new Book(id,title,category,cost, authors);
-
-        // Assuming your store has a method to add items
-        store.addMedia(book);
-
-        // Refresh the center panel to display the updated store
-//        refreshCenterPanel();
+//	
+//	
+//	
+//	
+//	
+	// Method to refresh the center panel with the updated store items
+    public void refreshCenterPanel() {
+        // Remove existing components
+        getContentPane().removeAll();
+        // Add components again
+        getContentPane().add(createNorth(), BorderLayout.NORTH);
+        getContentPane().add(createCenter(), BorderLayout.CENTER);
+        revalidate(); // Revalidate the container
+        repaint();    // Repaint the container
     }
+
 }
