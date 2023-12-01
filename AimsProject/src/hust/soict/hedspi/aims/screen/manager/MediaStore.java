@@ -14,19 +14,21 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
 
 public class MediaStore extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Media media;
 	private JButton btnPlay,btnAddToCart;
 	public MediaStore(Media media,final JFrame frame) {
 		ActionListener btnListener = new ButtonListener(frame);
 		this.media = media;
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-		
 		JLabel title = new JLabel(media.getTitle());
 		title.setFont(new Font(title.getFont().getName(),Font.PLAIN,20));
 		title.setAlignmentX(CENTER_ALIGNMENT);
@@ -37,10 +39,9 @@ public class MediaStore extends JPanel {
 		JPanel container = new JPanel();
 		container.setLayout(new FlowLayout(FlowLayout.CENTER));
 		
-//		btnAddToCart = new JButton("Add to cart");
-//		container.add(btnAddToCart);
-//		btnAddToCart.addActionListener(btnListener);
-				
+		btnAddToCart = new JButton("Add to cart");
+		container.add(btnAddToCart);
+		btnAddToCart.addActionListener(btnListener);		
 		if(media instanceof Playable) {
 			btnPlay = new JButton("Play");
 			container.add(btnPlay);
@@ -78,16 +79,23 @@ public class MediaStore extends JPanel {
 			}
 			
 			// Add to cart
-			if(button.equals("Add to cart")) {
-				JOptionPane.showMessageDialog(null, "Added Media" +media.getTitle() +" to Cart!");
-				CartScreen.getCart().addMedia(media);
-			}
+//			if(button.equals("Add to cart")) {
+//				JOptionPane.showMessageDialog(null, "Added Media" +media.getTitle() +" to Cart!");
+//				.getCart().addMedia(media);
+//			}
 		}
 	}
 	
 	
 	class playMediaDialog extends JDialog {
-	    public playMediaDialog(JFrame parent, String title, boolean modal) {
+	    /**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+
+
+
+		public playMediaDialog(JFrame parent, String title, boolean modal) {
 	        super(parent, title, modal);
 	        setLocationRelativeTo(parent); // Hiển thị dialog ở giữa cửa sổ chính
 

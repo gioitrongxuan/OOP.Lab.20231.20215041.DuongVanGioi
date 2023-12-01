@@ -9,7 +9,7 @@ import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.media.CompactDisc;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
-import hust.soict.hedspi.aims.screen.manager.CartScreen;
+import hust.soict.hedspi.aims.screen.manager.CartManagerScreen;
 import hust.soict.hedspi.aims.screen.manager.StoreManagerScreen;
 import hust.soict.hedspi.aims.store.Store;
 public class Aims {
@@ -71,7 +71,7 @@ public class Aims {
 		    store.addMedia(dvd9);
 		    store.addMedia(dvd10);
 		    new StoreManagerScreen(store);
-			 new CartScreen(cart);
+			new CartManagerScreen(cart);
 			////////////////
 			//////////
 			showMenu();
@@ -108,8 +108,7 @@ public class Aims {
 		int choice;
 		do {
 			storeMenu();
-			StoreManagerScreen storeCcreen = new StoreManagerScreen(store);
-			CartScreen cartScreen = new CartScreen(cart);
+			new StoreManagerScreen(store);
 			store.print();
 			System.out.print("Your choice: ");
 			choice = scanner.nextInt();

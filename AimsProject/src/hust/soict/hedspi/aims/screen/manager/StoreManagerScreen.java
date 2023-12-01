@@ -24,6 +24,10 @@ import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.store.Store;
 
 public class StoreManagerScreen extends JFrame{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Store store;
 	public Store getStore() {
 		return store;
@@ -54,9 +58,14 @@ public class StoreManagerScreen extends JFrame{
 		JMenuItem btnAddBook = new JMenuItem("Add Book");
 		JMenuItem btnAddCD = new JMenuItem("Add CD");
 		JMenuItem btnAddDVD = new JMenuItem("Add DVD");
+		JMenuItem btnRemove = new JMenuItem("Remove");
 		smUpdateStore.add(btnAddBook);
 		smUpdateStore.add(btnAddCD);
 		smUpdateStore.add(btnAddDVD);
+		smUpdateStore.add(btnRemove);
+		
+		
+		// Xử lý add book
 		btnAddBook.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
@@ -64,8 +73,24 @@ public class StoreManagerScreen extends JFrame{
 		        addBookScreen.setVisible(true);
 		    }
 		});
-//		btnAddCD.addActionListener(null);
-//		btnAddDVD.addActionListener(null);
+		
+		// Xử lý add DVD
+		btnAddDVD.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        AddDigitalVideoDiscToStoreScreen addDVDScreen = new AddDigitalVideoDiscToStoreScreen(StoreManagerScreen.this);
+		        addDVDScreen.setVisible(true);
+		    }
+		});
+		
+		// Xử lý add CD
+		btnAddCD.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        AddCompactDiscToStoreScreen addCDScreen = new AddCompactDiscToStoreScreen(StoreManagerScreen.this);
+		        addCDScreen.setVisible(true);
+		    }
+		});
 	
 		
 		menu.add(smUpdateStore);
