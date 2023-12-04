@@ -11,10 +11,6 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
     private JTextField directorField;
     private JTextField lengthField;
     private JTextField artistField;
-    @Override
-    public GridLayout getGridLayout() {
-    	return new GridLayout(8, 2, 10, 10);
-    }
     public AddCompactDiscToStoreScreen(StoreManagerScreen parentScreen) {
     	super(parentScreen);
     }

@@ -16,12 +16,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-
 public abstract class AddItemToStoreScreen extends JFrame {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
 	protected StoreManagerScreen parentScreen;
 	private List<LabelTextField> labelTextFields =new ArrayList<LabelTextField>();
 	private JLabel idLabel;
@@ -61,6 +61,7 @@ public abstract class AddItemToStoreScreen extends JFrame {
         labelTextFields.add(new LabelTextField(categoryLabel, categoryField));
         labelTextFields.add(new LabelTextField(costLabel, costField));
     };
+    
     // Phương thức để cài đặt giao diện chung
     public void setupUI() {
 		Container cp = getContentPane();
@@ -85,12 +86,14 @@ public abstract class AddItemToStoreScreen extends JFrame {
     	setVisible(true);
 		};
 		
-		public abstract GridLayout getGridLayout();
+		public GridLayout getGridLayout(int size) {
+			return new GridLayout(size+1,2,10,10);
+		};
 			
 		// Phương thức để khởi tạo các thành phần giao diện
     	public JPanel createCenter() {
         JPanel center = new JPanel();
-        center.setLayout(getGridLayout());
+        center.setLayout(getGridLayout(labelTextFields.size()));
         for(int i = 0; i < labelTextFields.size(); i++) {
         	center.add(labelTextFields.get(i).label);
         	center.add(labelTextFields.get(i).textField);
@@ -164,41 +167,12 @@ public abstract class AddItemToStoreScreen extends JFrame {
 	        }
 	 }
 	 void addMediaToStore(){
-		 resetTextField(labelTextFields);			//reset textfields
+		 resetTextField(labelTextFields);		//reset textfields
 		 parentScreen.refreshCenterPanel();		// refresh media in store 
 		 getAddButton().setEnabled(false);		// disable play button
 	 }
-    public JLabel getIdLabel() {
-		return idLabel;
-	}
-	public JLabel getTitleLabel() {
-		return titleLabel;
-	}
-	public JLabel getCategoryLabel() {
-		return categoryLabel;
-	}
-	public JLabel getCostLabel() {
-		return costLabel;
-	}
-	public JTextField getIdField() {
-		return idField;
-	}
-	public JTextField getTitleField() {
-		return titleField;
-	}
-	public JTextField getCategoryField() {
-		return categoryField;
-	}
-	public JTextField getCostField() {
-		return costField;
-	}
-	public JButton getAddButton() {
-		return addButton;
-	}
-	public List<LabelTextField> getLabelTextFields() {
-		return labelTextFields;
-	}
-	class LabelTextField {
+	 
+	 class LabelTextField {
 		 JLabel label;
 		 JTextField textField;
 		public LabelTextField(JLabel label, JTextField textField) {
@@ -207,6 +181,45 @@ public abstract class AddItemToStoreScreen extends JFrame {
 		}
 
 	}
+	public List<LabelTextField> getLabelTextFields() {
+		return labelTextFields;
+	}
+	 public JLabel getIdLabel() {
+			return idLabel;
+		}
+
+		public JLabel getTitleLabel() {
+			return titleLabel;
+		}
+
+		public JLabel getCategoryLabel() {
+			return categoryLabel;
+		}
+
+		public JLabel getCostLabel() {
+			return costLabel;
+		}
+
+		public JTextField getIdField() {
+			return idField;
+		}
+
+		public JTextField getTitleField() {
+			return titleField;
+		}
+
+		public JTextField getCategoryField() {
+			return categoryField;
+		}
+
+		public JTextField getCostField() {
+			return costField;
+		}
+
+		public JButton getAddButton() {
+			return addButton;
+		}
+	
 	 
 }
 

@@ -9,10 +9,6 @@ public class AddDigitalVideoDiscToStoreScreen extends AddItemToStoreScreen {
     private JLabel lengthLabel;
     private JTextField directorField;
     private JTextField lengthField;
-    @Override
-    public GridLayout getGridLayout() {
-    	return new GridLayout(7, 2, 10, 10);
-    }
     public AddDigitalVideoDiscToStoreScreen(StoreManagerScreen parentScreen) {
     	super(parentScreen);
     }
