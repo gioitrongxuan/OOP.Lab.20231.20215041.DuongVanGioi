@@ -3,6 +3,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.naming.LimitExceededException;
+
 import hust.soict.hedspi.aims.cart.Cart;
 import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 import hust.soict.hedspi.aims.media.Book;
@@ -31,7 +33,7 @@ public class Aims {
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3");
 		}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws LimitExceededException {
 		int choice;
 		do {
 			//////////////// nhap
@@ -104,7 +106,7 @@ public class Aims {
 //	3. Play a media
 //	4. See current cart
 //	0. Back
-	public static void viewStore() {
+	public static void viewStore() throws LimitExceededException {
 		int choice;
 		do {
 			storeMenu();
@@ -154,7 +156,7 @@ public class Aims {
 								System.out.println("--------------------------------");
 								System.out.println("Please choose a number: 0-1-2");
 								}
-							public static void seeMediaDetails() {
+							public static void seeMediaDetails() throws LimitExceededException {
 								String title;
 								System.out.println("Enter title of the media: ");
 								do {
@@ -188,7 +190,7 @@ public class Aims {
 								}
 							}
 							// 2. Add a media to cart
-							public static void addMediaToCart() {
+							public static void addMediaToCart() throws LimitExceededException {
 								int index;
 								System.out.println("Select media:");
 								index = scanner.nextInt();

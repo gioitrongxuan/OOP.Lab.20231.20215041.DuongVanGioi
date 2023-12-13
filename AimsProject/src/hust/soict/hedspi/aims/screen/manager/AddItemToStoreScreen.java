@@ -98,6 +98,8 @@ public abstract class AddItemToStoreScreen extends JFrame {
         	center.add(labelTextFields.get(i).label);
         	center.add(labelTextFields.get(i).textField);
         }
+        center.add(new JLabel()); // Thêm một label trống để căn chỉnh giao diện
+        center.add(addButton);
 		return center;
     	}
     	public void setMyFont() {

@@ -1,10 +1,8 @@
 package hust.soict.hedspi.aims.screen.manager;
 import javax.swing.*;
-import java.awt.*;
 import hust.soict.hedspi.aims.media.CompactDisc;
 
 public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
-	private static final long serialVersionUID = 1L;
     private JLabel directorLabel;
     private JLabel lengthLabel;
     private JLabel artistLabel;
@@ -27,16 +25,7 @@ public class AddCompactDiscToStoreScreen extends AddItemToStoreScreen {
         getLabelTextFields().add(new LabelTextField(lengthLabel, lengthField));
         getLabelTextFields().add(new LabelTextField(artistLabel, artistField));
     }
-    @Override
-    public JPanel createCenter() {
-        JPanel center = super.createCenter();
-        // ...
-        center.add(new JLabel()); // Thêm một label trống để căn chỉnh giao diện
-        center.add(getAddButton());
-        return center;
-    }
-    // Xử Lý sự kiện
-    @Override
+    @Override // Xử Lý sự kiện
     void addMediaToStore() {
     	parentScreen.getStore().addMedia(new CompactDisc(getIdField().getText(),getTitleField().getText(),getCategoryField().getText(),directorField.getText(),Integer.parseInt(lengthField.getText()), Float.parseFloat(getCostField().getText()), artistField.getText()));
     	super.addMediaToStore();

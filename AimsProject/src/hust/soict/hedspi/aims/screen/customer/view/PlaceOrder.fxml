@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="351.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label text="Delivery address" textFill="#1636eb">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="50.0" text="Name">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <TextField fx:id="tfName" prefHeight="26.0" prefWidth="228.0" HBox.hgrow="ALWAYS">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets left="10.0" right="20.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="50.0" text="Phone">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfPhone" prefHeight="26.0" prefWidth="221.0" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="10.0" right="20.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+      <HBox prefHeight="50.0" prefWidth="200.0">
+         <children>
+            <Label prefWidth="50.0" text="Address">
+               <font>
+                  <Font size="10.0" />
+               </font></Label>
+            <TextField fx:id="tfAddress" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
+               <HBox.margin>
+                  <Insets left="10.0" right="20.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </HBox>
+      <Label text="Paymet method" textFill="#2e1bfc">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="10.0" />
+         </VBox.margin>
+      </Label>
+      <VBox prefHeight="173.0" prefWidth="331.0" VBox.vgrow="ALWAYS">
+         <children>
+            <RadioButton mnemonicParsing="false" text="Delivery and collection at home (COD)">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="btnPaymentMethod" />
+               </toggleGroup></RadioButton>
+            <RadioButton mnemonicParsing="false" text="Transfer via Bank" toggleGroup="$btnPaymentMethod" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="10.0" />
+               </font></RadioButton>
+            <RadioButton mnemonicParsing="false" text="Online payment" toggleGroup="$btnPaymentMethod" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </RadioButton>
+            <RadioButton mnemonicParsing="false" text="Buy now pay later-BNPL" toggleGroup="$btnPaymentMethod">
+               <font>
+                  <Font size="10.0" />
+               </font></RadioButton>
+         <TextField fx:id="myTextField" prefHeight="51.0" prefWidth="331.0" promptText="Message">
+               <VBox.margin>
+                  <Insets right="20.0" />
+               </VBox.margin></TextField>
+         </children>
+         <VBox.margin>
+            <Insets left="20.0" />
+         </VBox.margin>
+      </VBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="97.0" prefWidth="79.0">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <children>
+                  <HBox>
+                     <children>
+                        <Label text="Payment:">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label text="Transport:">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefWidth="200.0">
+                     <children>
+                        <Label text="Discount:">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefWidth="159.0">
+                     <children>
+                        <Label text="Total amount: " textFill="RED">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_RIGHT">
+               <children>
+                  <Text fx:id="textPayment" strokeType="OUTSIDE" strokeWidth="0.0" />
+                  <Text fx:id="textTransport" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="31.98307228088379" />
+                  <Text fx:id="textDiscount" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                  <Text fx:id="textTotal" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+               </children>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button alignment="TOP_CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#submitOrder" prefHeight="30.0" prefWidth="100.0" text="Submit order">
+               <HBox.margin>
+                  <Insets right="20.0" top="40.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>
