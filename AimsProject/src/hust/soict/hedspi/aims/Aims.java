@@ -6,6 +6,7 @@ import java.util.Scanner;
 import javax.naming.LimitExceededException;
 
 import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.cart.exception.PlayerException;
 import hust.soict.hedspi.aims.disc.DigitalVideoDisc;
 import hust.soict.hedspi.aims.media.Book;
 import hust.soict.hedspi.aims.media.CompactDisc;
@@ -74,8 +75,7 @@ public class Aims {
 		    store.addMedia(dvd10);
 		    new StoreManagerScreen(store);
 			new CartManagerScreen(cart);
-			////////////////
-			//////////
+
 			showMenu();
 			System.out.print("Your choice: ");
 			choice = scanner.nextInt();
@@ -176,7 +176,12 @@ public class Aims {
 												break;
 											case 2:
 												if(findMedia instanceof Playable)
-													((Playable) findMedia).play();
+													try {
+														((Playable) findMedia).play();
+													} catch (PlayerException e) {
+														// TODO Auto-generated catch block
+														e.printStackTrace();
+													}
 												break;
 											case 0:
 												System.out.println("Returning to viewstore menu.");
@@ -204,7 +209,12 @@ public class Aims {
 									index = scanner.nextInt();
 									scanner.nextLine();
 									if(store.getItemsInStore().get(index-1) instanceof Playable)
-									((Playable)store.getItemsInStore().get(index-1)).play();
+										try {
+											((Playable)store.getItemsInStore().get(index-1)).play();
+										} catch (PlayerException e) {
+											// TODO Auto-generated catch block
+											e.printStackTrace();
+										}
 							}
 							
 							

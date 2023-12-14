@@ -32,13 +32,14 @@ public class TestViewCart extends Application{
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
 	}
-	public static void main(String[] args) throws LimitExceededException {
+	public static void main(String[] args) {
 		cart = new Cart();
+		store = new Store();
 		//Nhap media
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("D001", "The Matrix", "Action", "Wachowski Brothers", 136, 19.99f);
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("D002", "Inception", "Sci-Fi", "Christopher Nolan", 148, 24.99f);
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("D003", "The Shawshank Redemption", "Drama", "Frank Darabont", 142, 15.99f);
-		DigitalVideoDisc dvd4 = new DigitalVideoDisc("D004", "Forrest Gump", "Drama", "Robert Zemeckis", 142, 18.99f);
+		DigitalVideoDisc dvd4 = new DigitalVideoDisc("D004", "Forrest Gump", "Drama", "Robert Zemeckis", -142, 18.99f);
 		DigitalVideoDisc dvd5 = new DigitalVideoDisc("D005", "The Dark Knight", "Action", "Christopher Nolan", 152, 21.99f);
 		DigitalVideoDisc dvd6 = new DigitalVideoDisc("D006", "Pulp Fiction", "Crime", "Quentin Tarantino", 154, 17.99f);
 		DigitalVideoDisc dvd7 = new DigitalVideoDisc("D007", "The Godfather", "Crime", "Francis Ford Coppola", 175, 22.99f);
@@ -52,20 +53,25 @@ public class TestViewCart extends Application{
 	    System.out.println(dvd2.toString());
 	    List<String> authors2 = Arrays.asList("George Orwell");
 	    Book book2 = new Book("B002", "1984", "Dystopian", 19.99f, authors2);
-	    cart.addMedia(book2);
-	    cart.addMedia(book1);
-	    cart.addMedia(cd1);
-	    cart.addMedia(cd2);
-	    cart.addMedia(dvd1);
-	    cart.addMedia(dvd2);
-	    cart.addMedia(dvd3);
-	    cart.addMedia(dvd4);
-	    cart.addMedia(dvd5);
-	    cart.addMedia(dvd6);
-	    cart.addMedia(dvd7);
-	    cart.addMedia(dvd8);
-	    cart.addMedia(dvd9);
-	    cart.addMedia(dvd10);
+	    try {
+		    cart.addMedia(book2);
+		    cart.addMedia(book1);
+		    cart.addMedia(cd1);
+		    cart.addMedia(cd2);
+		    cart.addMedia(dvd1);
+		    cart.addMedia(dvd2);
+		    cart.addMedia(dvd3);
+		    cart.addMedia(dvd4);
+		    cart.addMedia(dvd5);
+		    cart.addMedia(dvd6);
+		    cart.addMedia(dvd7);
+		    cart.addMedia(dvd8);
+		    cart.addMedia(dvd9);
+		    cart.addMedia(dvd10);
+		} catch (LimitExceededException e) {
+			e.getStackTrace();
+		}
+
 		launch(args);
 	}
 }

@@ -1,6 +1,7 @@
 package hust.soict.hedspi.aims.disc;
 import java.util.Scanner;
 
+import hust.soict.hedspi.aims.cart.exception.PlayerException;
 import hust.soict.hedspi.aims.media.Disc;
 public class DigitalVideoDisc extends Disc {
 	Scanner scanner = new Scanner(System.in);
@@ -17,8 +18,14 @@ public class DigitalVideoDisc extends Disc {
 		super(id, title, category, director, length, cost);
 	}
 	@Override
-	public void play() {
-		System.out.println("Playing DVD: "+ this.getTitle());
-		System.out.println("DVD length: "+ this.getLength());
+	public void play() throws PlayerException {
+		if(this.getLength() > 0) {
+
+			System.out.println("Playing DVD: "+ this.getTitle());
+			System.out.println("DVD length: "+ this.getLength());
+		}
+		else {
+			throw new PlayerException ("ERROR: DVD length is non-positive");
+		}
 	}
 }

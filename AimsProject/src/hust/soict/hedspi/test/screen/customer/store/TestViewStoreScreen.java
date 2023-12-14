@@ -16,8 +16,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class TestViewStoreScreen extends Application{
-	private static Store store;
+	private static  Store store;
 	private static Cart cart;
+	public TestViewStoreScreen() {
+//		this.store = store;
+//		this.cart = cart;
+	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		final String STORE_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Store.fxml";
@@ -31,9 +35,9 @@ public class TestViewStoreScreen extends Application{
 		primaryStage.show();
 	}
 	public static void main(String[] args) {
+		//Nhap media
 		store = new Store();
 		cart = new Cart();
-		//Nhap media
 		DigitalVideoDisc dvd1 = new DigitalVideoDisc("D001", "The Matrix", "Action", "Wachowski Brothers", 136, 19.99f);
 		DigitalVideoDisc dvd2 = new DigitalVideoDisc("D002", "Inception", "Sci-Fi", "Christopher Nolan", 148, 24.99f);
 		DigitalVideoDisc dvd3 = new DigitalVideoDisc("D003", "The Shawshank Redemption", "Drama", "Frank Darabont", 142, 15.99f);

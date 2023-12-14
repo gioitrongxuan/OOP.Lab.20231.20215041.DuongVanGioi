@@ -3,19 +3,18 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import javax.naming.LimitExceededException;
-import javax.sound.sampled.LineUnavailableException;
 
 import hust.soict.hedspi.aims.media.Media;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Cart {
+public class Cart  {
 	private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 	@SuppressWarnings("unused")
 	private static final int MAX_NUMBERS_ORDERED =1000;
 	private int qtyOrdered = 0;
 	
-	public void addMedia(Media media) throws LimitExceededException {
+	public void addMedia(Media media) throws LimitExceededException  {
 		if( itemsOrdered.size() <  MAX_NUMBERS_ORDERED) {
 			itemsOrdered.add(media);
 			qtyOrdered++;

@@ -3,13 +3,13 @@ package hust.soict.hedspi.aims.screen.customer.controller;
 import java.io.IOException;
 
 import hust.soict.hedspi.aims.cart.Cart;
+import hust.soict.hedspi.aims.cart.exception.PlayerException;
 import hust.soict.hedspi.aims.media.Disc;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
 import hust.soict.hedspi.aims.store.Store;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,7 +33,6 @@ public class CartController {
 	private Store store;
 	private FilteredList<Media> listItems ;
     public CartController(Cart cart, Store store) {
-		super();
 		this.cart = cart;
 		this.store = store;
 		this.listItems = new FilteredList<Media>(cart.getItemsOrdered());
@@ -69,12 +68,10 @@ public class CartController {
     	tblMedia.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Media>() {
     		@Override
     		public void changed(ObservableValue<? extends Media> observable, Media oldValue, Media newValue) {
-    			System.out.println(newValue.getTitle());
     			updateButtonBar(newValue);
     			
     		}
 		});
-    	
     	tfFilter.textProperty().addListener(new ChangeListener<String>() {
     		@Override
     		public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -117,20 +114,31 @@ public class CartController {
     
     @FXML
     void btnPlayPressed(ActionEvent event) {
+    	Media media = tblMedia.getSelectionModel().getSelectedItem();
+    	
     	try {
-			final String STORE_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Playing.fxml";
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(STORE_FXML_FILE_PATH));
-			Media media = tblMedia.getSelectionModel().getSelectedItem();
-			fxmlLoader.setController(new PlayController((Disc)media));//
-			Parent root = fxmlLoader.load();
-			Stage stage = new Stage();
-			
-			stage.setScene(new Scene(root));
-			stage.setTitle("Play Disc");
-			stage.show();
-		} catch (IOException e) {
+			((Playable)media).play();
+			try {
+				final String STORE_FXML_FILE_PATH = "/hust/soict/hedspi/aims/screen/customer/view/Playing.fxml";
+				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(STORE_FXML_FILE_PATH));
+				
+				
+				fxmlLoader.setController(new PlayController((Disc)media));//
+				Parent root = fxmlLoader.load();
+				Stage stage = new Stage();
+				
+				stage.setScene(new Scene(root));
+				stage.setTitle("Play Disc");
+				stage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+				
+			}
+		} catch (PlayerException e) {
 			e.printStackTrace();
+			e.show(e.getMessage());
 		}
+    	
     }
 
     @FXML

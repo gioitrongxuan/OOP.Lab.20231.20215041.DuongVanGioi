@@ -1,5 +1,6 @@
 package hust.soict.hedspi.aims.screen.customer.controller;
 
+import hust.soict.hedspi.aims.cart.exception.PlayerException;
 import hust.soict.hedspi.aims.media.Disc;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +26,7 @@ public class PlayController {
 
     @FXML
     void btnPlayPressed(ActionEvent event) {
+    	
         if (btnPlay.getText().equals("Resume")) {
         	btnPlay.setText("Pause");
         } else {

@@ -15,6 +15,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import hust.soict.hedspi.aims.cart.exception.PlayerException;
 import hust.soict.hedspi.aims.media.Media;
 import hust.soict.hedspi.aims.media.Playable;
 
@@ -99,7 +101,12 @@ public class MediaStore extends JPanel {
 	        super(parent, title, modal);
 	        setLocationRelativeTo(parent); // Hiển thị dialog ở giữa cửa sổ chính
 
-	        ((Playable)media).play();
+	        try {
+				((Playable)media).play();
+			} catch (PlayerException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	        JLabel label = new JLabel(media.getTitle() +"is playing!");
 	        label.setHorizontalAlignment(JLabel.CENTER);
 	        JButton closeButton = new JButton("Close");

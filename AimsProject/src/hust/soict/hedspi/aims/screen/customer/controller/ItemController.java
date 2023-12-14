@@ -15,10 +15,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ItemController {
 	
@@ -34,8 +37,13 @@ public class ItemController {
     @FXML
     private Label lblTitle;
     @FXML
-    void btnAddToCartClicked(ActionEvent event) throws LimitExceededException {
-    	cart.addMedia(this.media);
+    void btnAddToCartClicked(ActionEvent event) {
+    	try {
+            cart.addMedia(this.media);
+            showSuccessDialog("Đã thêm thành công!");
+        } catch (LimitExceededException e) {
+            e.printStackTrace(); // Hoặc xử lý ngoại lệ theo nhu cầu của bạn.
+        }
     }
 
     @FXML
@@ -72,4 +80,13 @@ public class ItemController {
 			HBox.setMargin(btnAddToCart, new Insets(0,0,0,120));
 		}
     }
+
+	private void showSuccessDialog(String message) {
+	    Alert alert = new Alert(AlertType.INFORMATION);
+	    alert.setTitle("Thông báo");
+	    alert.setHeaderText(null);
+	    alert.setContentText(message);
+	    alert.initStyle(StageStyle.UTILITY);
+	    alert.showAndWait();
+	}  
 }
